@@ -40,7 +40,6 @@ if (answer > homeCost) {
 
 /*
     Equality operators
-*/
 
 // const secretNumber = 7;
 const secretNumber = '7';
@@ -62,4 +61,48 @@ if (guess === secretNumber) {
     console.log('Yes, it is 7 (strong)');
 } else {
     console.log('No, it is not 7');
+}
+*/
+
+/* 
+    Switch statement
+*/
+
+const role = 'manager';
+
+// if (role === 'admin') {
+//     console.log('Admin');
+// } else if (role === 'user') {
+//     console.log('User');
+// } else if (role === 'manager') {
+//     console.log('Manager');
+// } else {
+//     console.log('Unknown');
+// }
+
+switch (role) {
+    case 'admin':
+        console.log('Admin');
+        break;
+    case 'user':
+        console.log('User');
+        break;
+    case 'manager':
+        console.log('Manager');
+        break;
+    default:
+        console.log('Unknown');
+}
+
+const num = 1;
+
+switch (true) {
+    case num < 0:
+        console.log('Negative');
+        break;
+    case num > 0:
+        console.log('Positive');
+        break;
+    default:
+        console.log('Zero');
 }
