@@ -35,7 +35,6 @@ console.log('division:', division, 'volume:', volume);
 /*
     Assignment and comparison operators
 
-
 // Assignment operators
 let num = 10+5;
 num += 3; // num = num + 3
@@ -64,7 +63,6 @@ console.log(15 <= 10); // false
 
 /*
     Order of operators
-*/
 
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table
 
@@ -76,3 +74,26 @@ let a;
 let b;
 a = b = 10 + 5 + 5;
 console.log(a, b);
+*/
+
+/*
+    Data types
+*/
+
+// primitive types
+const number = 18;
+const string = 'whoami';
+const bool = true;
+const undefinedValue = undefined;
+let nullData;
+nullData = null;
+const symbol = Symbol('Admin');
+const big = BigInt(99999999999999999999);
+console.log(number, string, bool, undefinedValue, nullData, symbol, big);
+
+// object types
+const person = {
+    name: 'Gleb',
+    age: 24
+};
+console.log(person, typeof person);
