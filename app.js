@@ -66,7 +66,6 @@ if (guess === secretNumber) {
 
 /* 
     Switch statement
-*/
 
 const role = 'manager';
 
@@ -106,3 +105,25 @@ switch (true) {
     default:
         console.log('Zero');
 }
+*/
+
+/*
+    Ternary operator
+*/
+
+const product1 = 100000;
+const product2 = 20000;
+const wallet = 30000;
+let msg;
+
+// if (wallet > product1) {
+//     msg = 'Product 1';
+// } else if (wallet > product2) {
+//     msg = 'Product 2';
+// } else {
+//     msg = 'Nothing';
+// }
+// console.log(`I want to buy ${msg}`);
+
+const msg2 = (wallet > product1) ? 'Product 1' : (wallet > product2) ? 'Product 2' : 'Nothing';
+console.log(`I want to buy ${msg2}`);
