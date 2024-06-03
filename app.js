@@ -34,7 +34,7 @@ console.log('division:', division, 'volume:', volume);
 
 /*
     Assignment and comparison operators
-*/
+
 
 // Assignment operators
 let num = 10+5;
@@ -60,3 +60,19 @@ console.log(13 > 10); // true
 console.log(15 < 10); // false
 console.log(13 >= 10); // true
 console.log(15 <= 10); // false
+*/
+
+/*
+    Order of operators
+*/
+
+// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table
+
+//                  12   10   12
+const isSuited = 100 - 10 > 90 - 5;
+console.log(isSuited);
+
+let a;
+let b;
+a = b = 10 + 5 + 5;
+console.log(a, b);
