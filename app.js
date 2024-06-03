@@ -148,7 +148,6 @@ console.log(template2);
 
 /*
     Type conversions
-*/
 
 const age = '18';
 console.log(age + 5); // '185'
@@ -164,3 +163,16 @@ console.log(Boolean(1)); // true
 console.log(Boolean(0)); // false
 console.log(Boolean('')); // false
 console.log(Boolean(userName)); // true
+*/
+
+/*
+    False from other types
+*/
+
+console.log(Boolean(0)); // false
+console.log(Boolean('')); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(null)); // false
+console.log(Boolean(Number('string'))); // false 
+console.log(Number('string')); // NaN
+console.log(Boolean(NaN)); // false
