@@ -131,7 +131,6 @@ console.log(answer1, answer2);
 
 /*
     Template literals
-*/
 
 let projectName = 'HTML Company';
 let price = 1000;
@@ -145,3 +144,23 @@ const template2 =
 Price: ${price}
 Author: ${author}`
 console.log(template2);
+*/
+
+/*
+    Type conversions
+*/
+
+const age = '18';
+console.log(age + 5); // '185'
+console.log(Number(age) + 5); // 23
+console.log(age - 5); // 13 :-)
+console.log(age * 5); // 90 :-)
+console.log(age / 5); // 3.6 :-)
+
+const userName = 'Petya';
+console.log(Number(userName) + 5); // NaN
+console.log(String(4) + 2) // '42'
+console.log(Boolean(1)); // true
+console.log(Boolean(0)); // false
+console.log(Boolean('')); // false
+console.log(Boolean(userName)); // true
