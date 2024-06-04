@@ -60,7 +60,6 @@ console.log(users);
 
 /*
     Search element in array
-*/
 
 const roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
 
@@ -83,3 +82,38 @@ console.log(roles.includes('reviewer'));
 if (roles.includes('admin')) {
     console.log('Admin exist');
 }
+*/
+
+/* 
+    Array methods
+    Slice, splice, concat, reverse
+*/
+
+let roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
+let oldRoles = ['editor', 'developer'];
+
+
+// slice - не модифицирует исходный массив, отрезает и возращает новый кусок
+// slice - does not modify the original array, cuts and returns a new piece
+const newRoles = roles.slice(1, 4);
+console.log(roles); // admin, user, guest, moderator, reviewer
+console.log(newRoles); // user, moderator, reviewer
+
+// splice - модифицирует исходный массив, удаляет элементы и возращает удаленные части
+// splice - modifies the original array, deletes elements and returns the deleted parts
+const newRoles2 = roles.splice(1, 3);
+console.log(roles); // admin, reviewer
+console.log(newRoles2); // user, moderator
+
+// concat - объединяет два или более массива в один
+// concat - merges two or more arrays into one
+const concatedRoles = roles.concat(newRoles2, oldRoles);
+console.log(concatedRoles);
+
+// reverse - переворачивает массив
+// reverse - reverses the array
+console.log(concatedRoles.reverse());
+
+// sort - сортирует массив
+// sort - sorts the array
+console.log(concatedRoles.sort());
