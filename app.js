@@ -38,7 +38,6 @@ if (a === -8 || a === 22) {
 
 /* 
     Operators with other types
-*/
 
 console.log('Kirill' || 'Alex'); // Kirill
 console.log(false || 'Alex'); // Alex
@@ -61,3 +60,16 @@ console.log(filename); // false
 isAdmin = true;
 filename = isAdmin && 'music.mp3';
 console.log(filename); // music.mp3
+*/
+
+/*
+    Nullish coalescing operator
+*/
+
+const username = '';
+console.log(username || 'Guest'); // Guest
+console.log(username ?? 'Guest'); // ''
+let age = 0;
+console.log(age || 18); // 18
+console.log(age ?? 18); // 0
+
