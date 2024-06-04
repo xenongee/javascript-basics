@@ -1,7 +1,6 @@
 /* 
     Boolean logic
     Logical operators
-*/
 
 // A = true
 // B = false
@@ -35,3 +34,30 @@ let a = 7;
 if (a === -8 || a === 22) {
     console.log('a is -8 or 22');
 }
+*/
+
+/* 
+    Operators with other types
+*/
+
+console.log('Kirill' || 'Alex'); // Kirill
+console.log(false || 'Alex'); // Alex
+console.log('Kirill' || false); // Kirill
+
+console.log('Kirill' && 'Alex'); // Alex
+console.log(false && 'Alex'); // false
+console.log('Kirill' && false); // false
+
+let a;
+let username = a || 'Guest';
+console.log(username); // Guest
+a = 'Alex';
+username = a || 'Guest';
+console.log(username); // Alex
+
+let isAdmin = false;
+let filename = isAdmin && 'music.mp3';
+console.log(filename); // false
+isAdmin = true;
+filename = isAdmin && 'music.mp3';
+console.log(filename); // music.mp3
