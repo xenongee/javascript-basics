@@ -35,8 +35,20 @@ console.log(powerOfTwoNew(4));
 
 /* 
     Arrow functions
-*/
 
 const powerOfTwoNewNew = x => x ** 2;
 
 console.log(powerOfTwoNewNew(5));
+*/
+
+/* 
+    Functions default parameters
+*/
+
+function powerOfTwo(x, power = 2) {
+    // power = power ?? 2;
+    return x ** power;
+}
+
+console.log(powerOfTwo(5)); // 25
+console.log(powerOfTwo(5, 3)); // 125
