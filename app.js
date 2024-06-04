@@ -1,6 +1,5 @@
 /* 
     Functions
-*/
 
 function logName(name, surname) {
     console.log(name, surname);
@@ -16,10 +15,10 @@ function countDepositSum(depositUSD, month, rate) {
 }
 
 console.log(countDepositSum(1000, 12, 0.12));
+*/
 
 /* 
     Anonymous functions
-*/
 
 function powerOfTwo(x) {
     return x ** 2;
@@ -32,3 +31,12 @@ const powerOfTwoNew = function (x) {
 }
 
 console.log(powerOfTwoNew(4));
+*/
+
+/* 
+    Arrow functions
+*/
+
+const powerOfTwoNewNew = x => x ** 2;
+
+console.log(powerOfTwoNewNew(5));
