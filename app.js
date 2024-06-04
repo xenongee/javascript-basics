@@ -55,7 +55,6 @@ console.log(powerOfTwo(5, 3)); // 125
 
 /*
     Conditions in functions
-*/
 
 function canAccess(age) {
     if (age <= 18) {
@@ -68,3 +67,28 @@ console.log(canAccess(18));
 
 const canAccessNew = age => age <= 18 ? false : true;
 console.log(canAccessNew(18));
+*/
+
+/*
+    Functions in functions
+*/
+
+const KG_USD = 7;
+const KM_USD = 5;
+
+function calculateDistance (distance) {
+    return distance * KM_USD;
+}
+
+function calculateWeight (present) {
+    return present * KG_USD;
+}
+
+function getExchangePrice (present1, present2, distance) {
+    const price1 = calculateWeight(present1);
+    const price2 = calculateWeight(present2);
+    const distancePrice = calculateDistance(distance);
+    return price1 + price2 + distancePrice;
+}
+
+console.log(getExchangePrice(1, 2, 10));
