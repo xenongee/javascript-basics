@@ -23,7 +23,6 @@ console.log(someInfo);
 
 /*
     Array element management
-*/
 
 const users = ['John', 'Pavel', 'Mark'];
 console.log(users);
@@ -57,4 +56,30 @@ console.log(users);
 // deletes the first element, returns the deleted element and shifts the indexes
 users.shift();
 console.log(users);
+*/
 
+/*
+    Search element in array
+*/
+
+const roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
+
+// indexOf  - возвращает индекс первого вхождения элемента, если не найден возвращает -1
+// indexOf - returns the index of the first occurrence of the element, if not found returns -1
+console.log(roles.indexOf('admin'));
+console.log(roles.indexOf('vip'));
+console.log(roles.indexOf('reviewer'));
+
+if (roles.indexOf('admin') >= 0) {
+    console.log('Admin exist');
+}
+
+// includes - проверяет наличие элемента в массиве, возвращает true при нахождении
+// includes - checks for the presence of an element in the array, returns true if found
+console.log(roles.includes('admin'));
+console.log(roles.includes('vip'));
+console.log(roles.includes('reviewer'));
+
+if (roles.includes('admin')) {
+    console.log('Admin exist');
+}
