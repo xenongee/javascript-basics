@@ -43,7 +43,6 @@ console.log(powerOfTwoNewNew(5));
 
 /* 
     Functions default parameters
-*/
 
 function powerOfTwo(x, power = 2) {
     // power = power ?? 2;
@@ -52,3 +51,20 @@ function powerOfTwo(x, power = 2) {
 
 console.log(powerOfTwo(5)); // 25
 console.log(powerOfTwo(5, 3)); // 125
+*/
+
+/*
+    Conditions in functions
+*/
+
+function canAccess(age) {
+    if (age <= 18) {
+        return false;;
+    }
+    return true;
+}
+
+console.log(canAccess(18));
+
+const canAccessNew = age => age <= 18 ? false : true;
+console.log(canAccessNew(18));
