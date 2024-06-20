@@ -1,300 +1,101 @@
 /* 
-    Arrays
-
-const roles = ['admin', 'user', 'guest'];
-
-console.log(roles);
-console.log(roles[0]);
-console.log(roles[1]);
-console.log(roles[2]);
-console.log(roles.length);
-console.log(roles[roles.length - 1], '\n ---');
-
-// new syntax
-console.log(roles.at(0)); // like roles[0]
-console.log(roles.at(-1)); // like roles[roles.length - 1]
-
-const info = ['John', 30, true];
-console.log(info);
-
-const someInfo = new Array('Iron', 'Wood', 2024 - 1991, 10 > 5 ? 'yes' : 'no');
-console.log(someInfo);
+    Loops
 */
 
-/*
-    Array element management
+console.log('>>> loops - for');
 
-const users = ['John', 'Pavel', 'Mark'];
-console.log(users);
-
-users[2] = 'Katya';
-console.log(users);
-
-// добавление элементов - adding elements
-// может создать пустые элементы если индекс не следующий за последним
-// сan create empty elements if the index is not next to the last one
-users[3] = 'Alexey';
-console.log(users);
-
-// изменяет оригинальный массив и не создает пустые элементы, возвращает новую длину
-// modifies the original array, does not create empty elements; returns new length of the array
-users.push('Olga');
-console.log(users);
-
-// добавляет элемент в начало массива, сдвигает индексы существующих элементов
-// add element to the beginning of the array, shifts the indexes of existing elements
-users.unshift('Vasiliy');
-console.log(users);
-
-// удаление элементов - deleting elements
-// удаляет последний элемент, также его и возвращает
-// deletes the last element
-users.pop();
-console.log(users);
-
-// удаляет первый элемент, возвращает удаленный элемент и сдвигает индексы
-// deletes the first element, returns the deleted element and shifts the indexes
-users.shift();
-console.log(users);
-*/
-
-/*
-    Search element in array
-
-const roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
-
-// indexOf  - возвращает индекс первого вхождения элемента, если не найден возвращает -1
-// indexOf - returns the index of the first occurrence of the element, if not found returns -1
-console.log(roles.indexOf('admin'));
-console.log(roles.indexOf('vip'));
-console.log(roles.indexOf('reviewer'));
-
-if (roles.indexOf('admin') >= 0) {
-    console.log('Admin exist');
+console.log('loop #1');
+for (let i = 0; i < 5; i++) {
+    console.log(' ', i);
 }
 
-// includes - проверяет наличие элемента в массиве, возвращает true при нахождении
-// includes - checks for the presence of an element in the array, returns true if found
-console.log(roles.includes('admin'));
-console.log(roles.includes('vip'));
-console.log(roles.includes('reviewer'));
-
-if (roles.includes('admin')) {
-    console.log('Admin exist');
+console.log('loop #2');
+for (let i = -4; i <= 4; i+=2) {
+    console.log(' ', i);
 }
-*/
 
-/* 
-    Array methods
-    Slice, splice, concat, reverse
+console.log('>>> loops - break and continue');
 
-let roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
-let oldRoles = ['editor', 'developer'];
+let tasks = [" task1", " task2", " task3", " task4"];
 
-// slice - не модифицирует исходный массив, отрезает и возращает новый кусок
-// slice - does not modify the original array, cuts and returns a new piece
-const newRoles = roles.slice(1, 4);
-console.log(roles); // admin, user, guest, moderator, reviewer
-console.log(newRoles); // user, moderator, reviewer
+console.log('loop #1 - continue');
+for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i] === "task3") {
+        continue;
+    }
+    console.log(tasks[i]);
+}
 
-// splice - модифицирует исходный массив, удаляет элементы и возращает удаленные части
-// splice - modifies the original array, deletes elements and returns the deleted parts
-const newRoles2 = roles.splice(1, 3);
-console.log(roles); // admin, reviewer
-console.log(newRoles2); // user, guest, moderator
+console.log('loop #2 - break');
+for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i] === "task3") {
+        break;
+    }
+    console.log(tasks[i]);
+}
 
-// concat - объединяет два или более массива в один
-// concat - merges two or more arrays into one
-const concatedRoles = roles.concat(newRoles2, oldRoles);
-console.log(concatedRoles);
+console.log('>>> loop in reverse order');
 
-// reverse - переворачивает массив
-// reverse - reverses the array
-console.log(concatedRoles.reverse());
+let greetings = ["!", "you", "meet", "to", "nice", ",", "hello"];
+let greetings2 = [];
+console.log(' ', greetings);
+for (let i = greetings.length - 1; i >= 0; i--) {
+    greetings2.push(greetings[i]);
+}
+console.log(' ', greetings2);
 
-// sort - сортирует массив
-// sort - sorts the array
-console.log(concatedRoles.sort());
-*/
+console.log('>>> loop within loop');
 
-/*
-    From string to array and back
-
-let url = 'auth/user/login';
-console.log(url.split('/')); // ['auth', 'user', 'login']
-
-url = '/auth/user/login';
-console.log(url.split('/')); // ['', 'auth', 'user', 'login']
-
-
-let roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
-console.log(roles.join(', ')); // admin, user, guest, moderator, reviewer
-*/
-
-/*
-    Exercise - Updating the task list
-
-// Дан список задач
-// const tasks = ['Задача 1']; 
-// Сделать функции:
-// - Добавление задачи в конец
-// - Удаление задачи по названию
-// - Перенос задачи в начало списка по названию
-// Всегда меняем исходный массив
-
-// Here's a list of tasks
-// const tasks = ['Task 1'];
-// Make functions:
-// - Add task to the end
-// - Deleting a task by name
-// - Move task to the beginning of the list by name
-// Always change the initial array
-
-
-let tasks = ['Task'];
-
-function addTask(name) {
-    if (typeof name === 'string' && !tasks.includes(name)) {
-        tasks.push(name);
+console.log('loop #1 - simple');
+for (let i = 1; i < 3; i++) {
+    console.log('loop #1 - i = ', i);
+    for (let j = 0; j < 3; j++) {
+        console.log(' loop #2 - j = ', j);
     }
 }
 
-function deleteTask(name) {
-    if (typeof name === 'string' && tasks.includes(name)) {
-        return tasks.splice(tasks.indexOf(name), 1);
+console.log('loop #1 - nested array');
+const tasks2 = [["task1", "task2", "task3", "task4"], ["task5", "task6", "task7", "task8"]];
+for (let i = 0; i < tasks2.length; i++) {
+    console.log('task group', i + 1);
+    for (let j = 0; j < tasks2[i].length; j++) {
+        console.log(' ', tasks2[i][j]);
     }
 }
 
-function moveTaskToTop(name) {
-    const result = deleteTask(name)
-    console.log(result);
-    if (result && !tasks.includes(name)) {
-        // tasks.unshift(name);
-        tasks.unshift(result[0]);
-    }
+console.log('>>> loops - while');
+
+console.log('loop #1');
+let i = 0;
+while (i < 5) {
+    console.log(' ', i);
+    i++;
 }
 
-function init() {
-    console.log(tasks);
-    let selectFunction = prompt(`Выберите действие:\n1 - вывести текущие задачи\n2 - добавить задачу\n3 - удалить задачу\n4 - переместить задачу в начало\nЛюбой отличный знак - завершить программу`);
-    
-    switch (Number(selectFunction)) {
-        case 1:
-            alert(`Текущие задачи:\n${tasks}`);
-            init();
-            break;
-        case 2:
-            addTask(prompt(`Введите задачу:`));
-            init();
-            break;
-        case 3:
-            deleteTask(prompt(`Введите задачу:`));
-            init();
-            break;
-        case 4:
-            moveTaskToTop(prompt(`Введите задачу:`));
-            init();
-            break;
-        case 0:
-        default:
-            alert(`Завершение. Текущие задачи: ${tasks}`);
-            break;
-    }
+console.log('loop #2');
+const arr = ["a", "b", "c", "d"];
+let j = 0;
+while(j < arr.length) {
+    console.log(' ', arr[j]);
+    j++;
 }
 
-init();
-*/
+console.log('>>> loops - do while');
 
-/*
-    Destructurization
-const userData = ['Max', 23, 'Kazan'];
+let x = 0;
+do {
+    console.log(' ', x);
+    x++;
+} while (x < 5);
 
-let userName = userData[0];
-let userAge = userData[1];
-let userCity = userData[2];
+console.log('>>> loops - for of and for in');
 
-function getData() {
-    return ['Max', 23, 'Kazan'];
+console.log('loop #1 - for of');
+for (let i of arr) {
+    console.log(' ', 'i:', i + ' arr[i]: ' + arr[i]);
 }
 
-userName = getData()[0];
-userAge = getData()[1];
-userCity = getData()[2];
-
-console.log(userData);
-console.log(getData());
-console.log(userName, userAge, userCity);
-
-// destructurization
-let [userName2, userAge2, userCity2] = userData;
-let [userName3, userAge3, userCity3] = getData();
-
-console.log(userName2, userAge2, userCity2);
-console.log(userName3, userAge3, userCity3);
-
-// skip element
-let [userName4, , userCity4] = userData;
-let [userName5, _, userCity5] = getData();
-
-console.log(userName4, userCity4);
-console.log(userName5, userCity5);
-*/
-
-/*
-    REST operator
-
-let data = [1, 2, 3, 4, 5];
-let [a, b] = data;
-console.log(a, b);
-
-// rest оператор всегда используется в конце при деструктуризации, нельзя использовать в начале или в середине
-// rest operator is always used at the end of the destructuring, it cannot be used at the beginning or in the middle
-let [c, d, ...rest] = data;
-console.log(c, d, rest);
-*/
-
-/*
-    Exercise - URL Parsing Function
-
-// Дан произвольный url вида - https://unknown.site/catetogory/slug
-// Нужно сделать функцию, которая выводит в консоль:
-// Протокол (https)
-// Доменное имя (unknown.site)
-// Путь внутри сайта (/catetogory/slug)
-
-// Given a random url like - https://unknown.site/catetogory/slug
-// Write a function that outputs to the console:
-// Protocol (https)
-// Domain name (unknown.site)
-// Path inside the site (/catetogory/slug)
-
-*/
-
-function getUrlParts(url) {
-    let [protocol, ...postUrl] = url.split(':');
-    if (!(protocol === 'https' || protocol === 'http')) {
-        protocol = 'unknown';
-        postUrl = url.split(':')[1];
-        if (!postUrl) {
-            postUrl = '//' + url;
-        }
-    }
-    let [, , domain, ...path] = String(postUrl).split('/');
-    console.log(`Protocol: ${protocol}, Domain: ${domain}, Path: /${path.join('/')}`);
+console.log('loop #2 - for in');
+for (let i in arr) {
+    console.log(' ', 'i:', i + ' arr[i]: ' + arr[i]);
 }
-
-let url = 'https://unknown.site/category/slug';
-getUrlParts(url);
-// Protocol: https, Domain: unknown.site, Path: /category/slug
-
-url = 'http://unknown.site/category/slug';
-getUrlParts(url);
-// Protocol: http, Domain: unknown.site, Path: /category/slug
-
-url = 'ftp://unknown.site/category/slug';
-getUrlParts(url);
-// Protocol: unknown, Domain: unknown.site, Path: /category/slug
-
-url = 'unknown.site/category/slug';
-getUrlParts(url);
-// Protocol: unknown, Domain: unknown.site, Path: /category/slug
