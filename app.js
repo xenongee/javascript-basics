@@ -1,6 +1,5 @@
 /* 
     Loops
-*/
 
 console.log('>>> loops - for');
 
@@ -99,3 +98,74 @@ console.log('loop #2 - for in');
 for (let i in arr) {
     console.log(' ', 'i:', i + ' arr[i]: ' + arr[i]);
 }
+*/
+
+/* 
+    Exercise - Calculation of the closing balance sheet
+
+// Цели:
+// - Расчёт итогового баланса
+// - Проверка наличия отрицательного баланса
+// - Расчёт среднего дохода и среднего расхода
+// Данные:
+// - Operations: Массив чисел (каждое число = операция)
+// - Начальный баланс: 100 долларов
+
+// Objectives:
+// - Calculating the closing balance sheet
+// - Checking if there is a negative balance
+// - Calculation of average income and average expenditure
+// Data:
+// - Operations: Array of numbers (each number = operation)
+// - Opening balance: 100 dollars
+*/
+
+let balance = 100;
+let operations = [1000, -700, 300, -500, 10000];
+
+function getBalance(balance, operations) {
+    for (let act of operations) {
+        balance += act;
+    }
+    return balance;
+}
+
+function checkOperations(balance) {
+    if (balance < 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function averageOperations(operations) {
+    let [positive, posCount, negative, negCount] = [0, 0, 0, 0];
+    for(let act in operations) {
+        if (operations[act] > 0) {
+            positive += operations[act];
+            posCount++;
+        }
+        if (operations[act] < 0) {
+            negative += operations[act];
+            negCount++;
+        }
+    }
+    return [positive / posCount, negative / negCount]
+}
+
+let currentBalance = getBalance(balance, operations);
+
+console.log(`Old balance: ${balance} - Operations: ${operations}`);
+console.log(`Current balance: ${currentBalance}`);
+console.log(`Balance is positive: ${checkOperations(currentBalance)}`);
+console.log(`Average +/-:`, averageOperations(operations));
+
+console.log('---');
+
+operations = [450, -2000, 800, -100, 700];
+currentBalance = getBalance(balance, operations);
+
+console.log(`Old balance: ${balance} - Operations: ${operations}`);
+console.log(`Current balance: ${currentBalance}`);
+console.log(`Balance is positive: ${checkOperations(currentBalance)}`);
+console.log(`Average +/-:`, averageOperations(operations));
