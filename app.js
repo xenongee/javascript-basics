@@ -36,7 +36,7 @@ console.log(users);
 users[3] = 'Alexey';
 console.log(users);
 
-// изменяет ориггинальный массив и не создает пустые элементы, возвращает новую длину
+// изменяет оригинальный массив и не создает пустые элементы, возвращает новую длину
 // modifies the original array, does not create empty elements; returns new length of the array
 users.push('Olga');
 console.log(users);
@@ -101,7 +101,7 @@ console.log(newRoles); // user, moderator, reviewer
 // splice - modifies the original array, deletes elements and returns the deleted parts
 const newRoles2 = roles.splice(1, 3);
 console.log(roles); // admin, reviewer
-console.log(newRoles2); // user, moderator
+console.log(newRoles2); // user, guest, moderator
 
 // concat - объединяет два или более массива в один
 // concat - merges two or more arrays into one
@@ -118,8 +118,7 @@ console.log(concatedRoles.sort());
 */
 
 /*
-From string to array and back
-*/
+    From string to array and back
 
 let url = 'auth/user/login';
 console.log(url.split('/')); // ['auth', 'user', 'login']
@@ -130,3 +129,79 @@ console.log(url.split('/')); // ['', 'auth', 'user', 'login']
 
 let roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
 console.log(roles.join(', ')); // admin, user, guest, moderator, reviewer
+*/
+
+/*
+    Exercise - Updating the task list
+
+// Дан список задач
+// const tasks = ['Задача 1']; 
+// Сделать функции:
+// - Добавление задачи в конец
+// - Удаление задачи по названию
+// - Перенос задачи в начало списка по названию
+// Всегда меняем исходный массив
+
+// Here's a list of tasks
+// const tasks = ['Task 1'];
+// Make functions:
+// - Add task to the end
+// - Deleting a task by name
+// - Move task to the beginning of the list by name
+// Always change the initial array
+
+*/
+
+let tasks = ['Task'];
+
+function addTask(name) {
+    if (typeof name === 'string' && !tasks.includes(name)) {
+        tasks.push(name);
+        alert(`Задача ${name} добавлена, текущие задачи:\n${tasks}`);
+    }
+}
+
+function deleteTask(name) {
+    if (typeof name === 'string' && tasks.includes(name)) {
+        tasks.splice(tasks.indexOf(name), 1);
+        alert(`Задача ${name} удалена, текущие задачи:\n${tasks}`);
+    }
+}
+
+function moveTaskToTop(name) {
+    if (typeof name === 'string' && tasks.includes(name)) {
+        tasks.splice(tasks.indexOf(name), 1);
+        tasks.unshift(name);
+        alert(`Задача ${name} перемещена в начало списка, текущие задачи:\n${tasks}`);
+    }
+}
+
+function init() {
+    console.log(tasks);
+    let selectFunction = prompt(`Выберите действие:\n1 - вывести текущие задачи\n2 - добавить задачу\n3 - удалить задачу\n4 - переместить задачу в начало\nЛюбой отличный знак - завершить программу`);
+    
+    switch (Number(selectFunction)) {
+        case 1:
+            alert(`Текущие задачи:\n${tasks}`);
+            init();
+            break;
+        case 2:
+            addTask(prompt(`Введите задачу:`));
+            init();
+            break;
+        case 3:
+            deleteTask(prompt(`Введите задачу:`));
+            init();
+            break;
+        case 4:
+            moveTaskToTop(prompt(`Введите задачу:`));
+            init();
+            break;
+        case 0:
+        default:
+            alert(`Завершение. Текущие задачи: ${tasks}`);
+            break;
+    }
+}
+
+init();
