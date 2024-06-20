@@ -87,11 +87,9 @@ if (roles.includes('admin')) {
 /* 
     Array methods
     Slice, splice, concat, reverse
-*/
 
 let roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
 let oldRoles = ['editor', 'developer'];
-
 
 // slice - не модифицирует исходный массив, отрезает и возращает новый кусок
 // slice - does not modify the original array, cuts and returns a new piece
@@ -117,3 +115,18 @@ console.log(concatedRoles.reverse());
 // sort - сортирует массив
 // sort - sorts the array
 console.log(concatedRoles.sort());
+*/
+
+/*
+From string to array and back
+*/
+
+let url = 'auth/user/login';
+console.log(url.split('/')); // ['auth', 'user', 'login']
+
+url = '/auth/user/login';
+console.log(url.split('/')); // ['', 'auth', 'user', 'login']
+
+
+let roles = ['admin', 'user', 'guest', 'moderator', 'reviewer'];
+console.log(roles.join(', ')); // admin, user, guest, moderator, reviewer
