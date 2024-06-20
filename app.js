@@ -19,7 +19,6 @@ console.log(add(someFunction(4), -32));  // 32
 /*
     Callback function
     Функция обратного вызова
-*/
 
 function add(x, y) {
     return x + y;
@@ -37,4 +36,20 @@ function calculate(x, y, callback) {
 
 console.log(calculate(3, 5, add));
 console.log(calculate(3, 5, sub));
+*/
 
+/*
+    Return function
+    Возврат функции
+*/
+
+function power(pow) {
+    return function (num) {
+        return num**pow;
+    }
+}
+
+const powTest = power(2); // pow
+console.log(powTest(5)) // num
+
+console.log(power(2)(5)); // (pow)(num)
