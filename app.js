@@ -225,10 +225,18 @@ userCity = getData()[2];
 
 console.log(userData);
 console.log(getData());
+console.log(userName, userAge, userCity);
 
 // destructurization
 let [userName2, userAge2, userCity2] = userData;
 let [userName3, userAge3, userCity3] = getData();
 
-console.log(userData);
-console.log(getData());
+console.log(userName2, userAge2, userCity2);
+console.log(userName3, userAge3, userCity3);
+
+// skip element
+let [userName4, , userCity4] = userData;
+let [userName5, _, userCity5] = getData();
+
+console.log(userName4, userCity4);
+console.log(userName5, userCity5);
