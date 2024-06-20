@@ -242,7 +242,6 @@ console.log(userName5, userCity5);
 
 /*
     REST operator
-*/
 
 let data = [1, 2, 3, 4, 5];
 let [a, b] = data;
@@ -252,4 +251,50 @@ console.log(a, b);
 // rest operator is always used at the end of the destructuring, it cannot be used at the beginning or in the middle
 let [c, d, ...rest] = data;
 console.log(c, d, rest);
+*/
 
+/*
+    Exercise - URL Parsing Function
+
+// Дан произвольный url вида - https://unknown.site/catetogory/slug
+// Нужно сделать функцию, которая выводит в консоль:
+// Протокол (https)
+// Доменное имя (unknown.site)
+// Путь внутри сайта (/catetogory/slug)
+
+// Given a random url like - https://unknown.site/catetogory/slug
+// Write a function that outputs to the console:
+// Protocol (https)
+// Domain name (unknown.site)
+// Path inside the site (/catetogory/slug)
+
+*/
+
+function getUrlParts(url) {
+    let [protocol, ...postUrl] = url.split(':');
+    if (!(protocol === 'https' || protocol === 'http')) {
+        protocol = 'unknown';
+        postUrl = url.split(':')[1];
+        if (!postUrl) {
+            postUrl = '//' + url;
+        }
+    }
+    let [, , domain, ...path] = String(postUrl).split('/');
+    console.log(`Protocol: ${protocol}, Domain: ${domain}, Path: /${path.join('/')}`);
+}
+
+let url = 'https://unknown.site/category/slug';
+getUrlParts(url);
+// Protocol: https, Domain: unknown.site, Path: /category/slug
+
+url = 'http://unknown.site/category/slug';
+getUrlParts(url);
+// Protocol: http, Domain: unknown.site, Path: /category/slug
+
+url = 'ftp://unknown.site/category/slug';
+getUrlParts(url);
+// Protocol: unknown, Domain: unknown.site, Path: /category/slug
+
+url = 'unknown.site/category/slug';
+getUrlParts(url);
+// Protocol: unknown, Domain: unknown.site, Path: /category/slug
