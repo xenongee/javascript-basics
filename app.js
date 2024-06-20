@@ -207,8 +207,6 @@ init();
 
 /*
     Destructurization
-*/
-
 const userData = ['Max', 23, 'Kazan'];
 
 let userName = userData[0];
@@ -240,3 +238,18 @@ let [userName5, _, userCity5] = getData();
 
 console.log(userName4, userCity4);
 console.log(userName5, userCity5);
+*/
+
+/*
+    REST operator
+*/
+
+let data = [1, 2, 3, 4, 5];
+let [a, b] = data;
+console.log(a, b);
+
+// rest оператор всегда используется в конце при деструктуризации, нельзя использовать в начале или в середине
+// rest operator is always used at the end of the destructuring, it cannot be used at the beginning or in the middle
+let [c, d, ...rest] = data;
+console.log(c, d, rest);
+
