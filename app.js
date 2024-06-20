@@ -157,22 +157,21 @@ let tasks = ['Task'];
 function addTask(name) {
     if (typeof name === 'string' && !tasks.includes(name)) {
         tasks.push(name);
-        alert(`Задача ${name} добавлена, текущие задачи:\n${tasks}`);
     }
 }
 
 function deleteTask(name) {
     if (typeof name === 'string' && tasks.includes(name)) {
-        tasks.splice(tasks.indexOf(name), 1);
-        alert(`Задача ${name} удалена, текущие задачи:\n${tasks}`);
+        return tasks.splice(tasks.indexOf(name), 1);
     }
 }
 
 function moveTaskToTop(name) {
-    if (typeof name === 'string' && tasks.includes(name)) {
-        tasks.splice(tasks.indexOf(name), 1);
-        tasks.unshift(name);
-        alert(`Задача ${name} перемещена в начало списка, текущие задачи:\n${tasks}`);
+    const result = deleteTask(name)
+    console.log(result);
+    if (result && !tasks.includes(name)) {
+        // tasks.unshift(name);
+        tasks.unshift(result[0]);
     }
 }
 
