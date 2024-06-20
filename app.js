@@ -150,7 +150,6 @@ console.log(roles.join(', ')); // admin, user, guest, moderator, reviewer
 // - Move task to the beginning of the list by name
 // Always change the initial array
 
-*/
 
 let tasks = ['Task'];
 
@@ -204,3 +203,32 @@ function init() {
 }
 
 init();
+*/
+
+/*
+    Destructurization
+*/
+
+const userData = ['Max', 23, 'Kazan'];
+
+let userName = userData[0];
+let userAge = userData[1];
+let userCity = userData[2];
+
+function getData() {
+    return ['Max', 23, 'Kazan'];
+}
+
+userName = getData()[0];
+userAge = getData()[1];
+userCity = getData()[2];
+
+console.log(userData);
+console.log(getData());
+
+// destructurization
+let [userName2, userAge2, userCity2] = userData;
+let [userName3, userAge3, userCity3] = getData();
+
+console.log(userData);
+console.log(getData());
