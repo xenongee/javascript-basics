@@ -41,7 +41,7 @@ console.log(calculate(3, 5, sub));
 /*
     Return function
     Возврат функции
-*/
+
 
 function power(pow) {
     return function (num) {
@@ -50,6 +50,15 @@ function power(pow) {
 }
 
 const powTest = power(2); // pow
-console.log(powTest(5)) // num
+console.log(powTest(5)) // num -> 25
 
-console.log(power(2)(5)); // (pow)(num)
+console.log(power(2)(5)); // (pow)(num) -> 25
+*/
+
+/* 
+    Exercise - Arrow functions
+    Упражнение - Стрелочные функции
+*/
+
+const arrow_power = (pow) => (num) => num**pow;
+console.log(arrow_power(2)(8)); // 64
