@@ -92,7 +92,6 @@ console.log(result);
 
 /* 
     reduce
-*/
 
 let transactionUSD = [10, -5, 20, 15, -10];
 let balance = 0;
@@ -107,3 +106,46 @@ balance = transactionUSD.reduce((acc, el) => {
     return acc + el;
 }, 0);
 console.log(balance);
+*/
+
+/*
+    Exercise - average value
+    Упражнение - среднее значение
+
+    Find the average value of the last sequence of numbers with reduce
+    Найти среднее значение последоватедьности чисел с помощью reduce
+
+const arr = [1, 4, 4, 10];
+let result = arr.reduce((acc, el, i) => {
+    // console.log(acc, el, i);
+    acc += el;
+    if (i+1 >= arr.length) {
+        return acc / arr.length;
+    }
+    return acc;
+}, 0);
+
+console.log("res:", result);
+*/
+
+/*
+    find and findIndex
+*/
+
+const arr = [1, 4, 4, 10];
+
+console.log('find by forloop');
+for (let el of arr) {
+    if (el > 5) {
+        console.log(el); // 10
+        break;
+    }
+}
+
+console.log('find');
+let result = arr.find(el => el > 5);
+console.log(result); // 10
+
+console.log('findIndex');
+result = arr.findIndex(el => el > 5);
+console.log(result); // 3
