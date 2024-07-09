@@ -173,10 +173,42 @@ console.log(some(arr, 10))
 
 /* 
     flat and flatMap
-*/
 
 const prices = [[100, 200], [120, 100], [200, 350], [80, 90, [10, 15]]];
 
 console.log(prices.flat()); // [100, 200, 120, 100, 200, 350, 80, 90, Array(2)]
 console.log(prices.flat(2)); // [100, 200, 120, 100, 200, 350, 80, 90, 10, 15]
 console.log(prices.flatMap(el => el.concat([999]))); // [100, 200, 999, 120, 100, 999, 200, 350, 999, 80, 90, Array(2), 999]
+*/
+
+/*
+    sort
+*/
+
+const users = ["Dmitry", "Yana", "Viktor", "Tatyana", "Alexander", "Vladimir", "Sergey", "Olga"];
+console.log(users);
+users.sort();
+console.log(users); // ['Alexander', 'Dmitry', 'Olga', 'Sergey', 'Tatyana', 'Viktor', 'Vladimir', 'Yana']
+
+const transactionUSD = [10, -5, 20, 15, -10];
+console.log(transactionUSD);
+// transactionUSD.sort();
+// console.log(transactionUSD); // [-10, -5, 10, 15, 20] ???
+
+transactionUSD.sort((a, b) => {
+    // if (a > b)
+    //     return 1;
+    // if (a < b) 
+    //     return -1;
+    return a - b
+})
+console.log(transactionUSD); // [-10, -5, 10, 15, 20] 
+
+transactionUSD.sort((a, b) => {
+    // if (a < b)
+    //     return 1;
+    // if (a > b) 
+    //     return -1;
+    return b - a
+})
+console.log(transactionUSD); // [20, 15, 10, -5, -10]
