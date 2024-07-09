@@ -22,7 +22,6 @@ console.log(user.slice(5, 8)); // Doe
 /*
     Преобразование строк
     String conversion
-*/
 
 const string = 'John Doe';
 console.log(string.includes('Doe')); // true
@@ -39,3 +38,18 @@ console.log(string.replace(/o/g, 'a')); // Jahn Dan (regex alternative)
 const string2 = '  Hello World       \n';
 console.log(string2); // ' Hello World       '
 console.log(string2.trim()); // 'Hello World'
+*/
+
+/*
+    Строки и массивы
+    Strings and arrays
+*/
+
+const fullName = 'Knyazev Konstantin Konstantinovich';
+console.log(fullName.split(' ')); // ['Knyazev', 'Konstantin', 'Konstantinovich']
+const [surName, firstName, patronymic] = fullName.split(' ');
+console.log(surName, firstName, patronymic); // Knyazev Konstantin Konstantinovich
+
+const string = ['Hello', 'World'];
+console.log(string.join(' ')); // Hello World
+
