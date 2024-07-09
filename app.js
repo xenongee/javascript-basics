@@ -183,7 +183,6 @@ console.log(prices.flatMap(el => el.concat([999]))); // [100, 200, 999, 120, 100
 
 /*
     sort
-*/
 
 const users = ["Dmitry", "Yana", "Viktor", "Tatyana", "Alexander", "Vladimir", "Sergey", "Olga"];
 console.log(users);
@@ -212,3 +211,33 @@ transactionUSD.sort((a, b) => {
     return b - a
 })
 console.log(transactionUSD); // [20, 15, 10, -5, -10]
+*/
+
+/* 
+    Fast array creation
+*/
+
+const arr1 = [1, 2, 3];
+
+const arr2 = new Array(1, 2, 3);
+
+const arr3 = []
+
+const arr4 = new Array(3);
+
+console.log('arrays');
+console.log(arr1); // [1, 2, 3]
+console.log(arr2); // [1, 2, 3]
+console.log(arr3); // []
+console.log(arr4); // [empty × 3]
+
+console.log('fill');
+arr3.fill(69);
+console.log(arr3); // []
+arr4.fill(69);
+console.log(arr4); // [69, 69, 69]
+
+console.log('from');
+const arr5 = Array.from({length: 3}, (cur, i) => i + 1);
+console.log(arr5); // [1, 2, 3]
+console.log(Array.from([3, 2, 1], (cur, i) => `${i+1}: ${cur}`));
