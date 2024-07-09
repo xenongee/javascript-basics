@@ -43,7 +43,6 @@ console.log(string2.trim()); // 'Hello World'
 /*
     Строки и массивы
     Strings and arrays
-*/
 
 const fullName = 'Knyazev Konstantin Konstantinovich';
 console.log(fullName.split(' ')); // ['Knyazev', 'Konstantin', 'Konstantinovich']
@@ -52,4 +51,14 @@ console.log(surName, firstName, patronymic); // Knyazev Konstantin Konstantinovi
 
 const string = ['Hello', 'World'];
 console.log(string.join(' ')); // Hello World
+*/
 
+/*
+    Дополнение строк
+    Addition of strings
+*/
+
+const film = 'The Fast and the Furious';
+console.log(film.padStart(50, '*')); // **********The Fast and the Furious
+console.log(film.padEnd(50, '*'));   // The Fast and the Furious**********
+console.log(film.repeat(5));         // The Fast and the FuriousThe Fast and the FuriousThe Fast and the FuriousThe Fast and the FuriousThe Fast and the Furious
