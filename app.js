@@ -18,15 +18,14 @@ score.forEach(el => console.log(el));
 
 console.log('forEach with index');
 score.forEach((el, index) => console.log(index, el));
-*/
 
-let score = [1, 3, 5, 7, 9];
 console.log('forEach with index and print array');
 score.forEach((el, index, score) => console.log(index, el, score));
+*/
 
 /* 
     map
-*/
+
 
 let transactionUSD = [10, -5, 20, 15, -10];
 let transactionRUB = [];
@@ -44,3 +43,28 @@ let transactionRUB2 = transactionUSD.map((el, i) => {
     return el * 90;
 });
 console.log(transactionRUB2);
+*/
+
+/* 
+    filter
+*/
+
+let transactionUSD = [10, -5, 20, 15, -10];
+let positiveTransactionsOld = [];
+
+for (let el of transactionUSD) {
+    if (el > 0) {
+        positiveTransactionsOld.push(el);
+    }
+}
+console.log(positiveTransactionsOld);
+
+console.log('filter');
+let positiveTransactions = transactionUSD.filter(el => el > 0);
+console.log(positiveTransactions);
+
+console.log('map + filter');
+let positiveTransactionsRUB = transactionUSD
+    .filter(el => el > 0)
+    .map(el => el * 90);
+console.log(positiveTransactionsRUB);
