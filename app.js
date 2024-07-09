@@ -47,7 +47,6 @@ console.log(transactionRUB2);
 
 /* 
     filter
-*/
 
 let transactionUSD = [10, -5, 20, 15, -10];
 let positiveTransactionsOld = [];
@@ -68,3 +67,43 @@ let positiveTransactionsRUB = transactionUSD
     .filter(el => el > 0)
     .map(el => el * 90);
 console.log(positiveTransactionsRUB);
+*/
+
+/*
+    Exercise - output of price changes
+    Упражнение - вывод изменений цен
+
+    There is an array of price changes, where 
+    the 1st element of the array is the price at time X and 
+    the 2nd element is the price at time Y. 
+    We need to convert the data into an array that shows 
+    only positive price changes: [100, 150]
+
+    Имеется массив изменения цен prices, где внутри
+    1й элемент массива является ценой в момент Х, 
+    2й - ценой в момент Y.
+    Нужно преобразовать данные в массив, где будут отображены 
+    только положительные изменения цен: [100, 150]
+
+const prices = [[100, 200], [120, 100], [200, 350]];
+let result = prices.map(el => el[1] - el[0]).filter(el => el > 0);
+console.log(result);
+*/
+
+/* 
+    reduce
+*/
+
+let transactionUSD = [10, -5, 20, 15, -10];
+let balance = 0;
+for (let el of transactionUSD) {
+    balance += el;
+}
+console.log(balance);
+
+console.log('reduce');
+balance = transactionUSD.reduce((acc, el) => {
+    console.log(acc, el);
+    return acc + el;
+}, 0);
+console.log(balance);
