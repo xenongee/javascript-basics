@@ -130,7 +130,6 @@ console.log("res:", result);
 
 /*
     find and findIndex
-*/
 
 const arr = [1, 4, 4, 10];
 
@@ -149,3 +148,35 @@ console.log(result); // 10
 console.log('findIndex');
 result = arr.findIndex(el => el > 5);
 console.log(result); // 3
+*/
+
+/*
+    Exercise - realization of some
+    Упражнение - реализация some
+
+    Write a function that checks if the array contains some element
+    Написать функцию, которая возвращает true, если элемент есть, и false, если нет.
+
+const arr = [2, 4, 4, 10, 20];
+
+function some(array, elem) {
+    if (array.find(el => el === elem) === elem) {
+        return true;
+    }
+    return false;
+}
+
+console.log(some(arr, 10))
+
+// console.log(arr.some(el => el === 10));
+*/
+
+/* 
+    flat and flatMap
+*/
+
+const prices = [[100, 200], [120, 100], [200, 350], [80, 90, [10, 15]]];
+
+console.log(prices.flat()); // [100, 200, 120, 100, 200, 350, 80, 90, Array(2)]
+console.log(prices.flat(2)); // [100, 200, 120, 100, 200, 350, 80, 90, 10, 15]
+console.log(prices.flatMap(el => el.concat([999]))); // [100, 200, 999, 120, 100, 999, 200, 350, 999, 80, 90, Array(2), 999]
