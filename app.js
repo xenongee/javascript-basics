@@ -22,7 +22,6 @@ console.log(user); // { name: 'John', surname: 'Doe', age: 25, gender: 'male', s
 /*
     Обращение к элементам
     Addressing elements
-*/
 
 const user = {
     name: 'John',
@@ -37,3 +36,26 @@ console.log(user.name, user.surname); // John Doe
 console.log(user['name'], user['surname']); // John Doe
 const eduType = 'Advanced';
 console.log(user['edu' + eduType]); // University
+*/
+
+/*
+    Методы объектов
+    Methods of objects
+*/  
+
+const user = {
+    name: 'John',
+    surname: 'Doe',
+    age: 25,
+    gender: 'male',
+    getFullNameNew: function() {
+        console.log(this);
+        return user.name + ' ' + this.surname;
+    }
+};
+
+// function getFullName(user) {
+//     return user.name + ' ' + user.surname;
+// }
+
+console.log(user.getFullNameNew());
