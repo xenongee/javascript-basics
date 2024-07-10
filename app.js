@@ -62,7 +62,6 @@ console.log(user.getFullNameNew());
 /*
     Упражнение - кошелек
     Exercise - wallet
-*/
 
 const wallet = {
     balance: 0,
@@ -120,3 +119,91 @@ function init() {
 }
 
 init();
+*/
+
+/*
+    Echance object literals
+
+const initialBalance = 1337;
+let balance = 1337;
+
+
+const wallet = {
+    // balance: balance,            x
+    // balance: initialBalance,     v
+    balance, //                     v
+    operations: []
+};
+
+console.log(wallet);
+*/
+
+/*
+    Итерирование по объекту
+    Iterating over objects
+
+const cities = {
+    moscow: {
+        population: 12641000,
+        area: 2511
+    },
+    vyatka: {
+        population: 513000,
+        area: 169
+    },
+    novosibirsk: {
+        population: 1567000,
+        area: 502
+    },
+    kaliningrad: {
+        population: 492000,
+        area: 223
+    }
+}
+
+let sumPopulation = 0;
+let citiesCount = Object.keys(cities).length;
+
+for (const city in cities) {
+    sumPopulation += cities[city].population;
+}
+
+console.log(cities);
+console.log(sumPopulation / citiesCount);
+*/
+
+/*
+    Destructurization and rest
+*/
+
+let vyatka = {
+    oldName: 'Вятка',
+    based: 1181,
+    population: 475464,
+    area: 169,
+    toy: 'Дымковская игрушка',
+}
+
+console.log(vyatka);
+
+const {oldName, toy, ...something} = vyatka;
+
+console.log(oldName, toy, something);
+
+const vyatkaFacts = {
+    currName: 'Киров',
+    secondName: 'Хлынов',
+    mainSigts: [
+        'Трифонов монастырь',
+        'Спасский собор',
+        'Церковь Cерафима',
+        'Церковь Святого Иоанна Крестителя'
+    ]
+}
+
+vyatka = {
+    ...vyatka,
+    ...vyatkaFacts
+}
+
+console.log(vyatka);
