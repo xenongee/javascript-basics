@@ -174,7 +174,6 @@ console.log(sumPopulation / citiesCount);
 
 /*
     Destructurization and rest
-*/
 
 let vyatka = {
     oldName: 'Вятка',
@@ -207,3 +206,41 @@ vyatka = {
 }
 
 console.log(vyatka);
+*/
+
+/*
+    Optional chaining
+*/
+
+let cities = {
+    kirov: {
+        oldNames: {
+            oldName: 'Вятка',
+            oldName2: 'Хлынов'
+        }
+    },
+    nizniyNovgorod: {
+        
+    }
+    // nizniyNovgorod: {
+    //     oldNames: {
+    //         oldName: 'Горький',
+    //         oldName2: 'Отсувствует'
+    //     }
+    // }
+}
+
+console.log(cities.kirov.oldNames.oldName2); // 'Хлынов'
+console.log(cities.nizniyNovgorod.oldNames); // undefined
+// console.log(cities.nizniyNovgorod.oldNames.oldName2); // Uncaught
+
+// const city = 'kirov';
+const city = 'nizniyNovgorod';
+
+console.log('without optional chaining');
+if(cities[city] != undefined && cities[city].oldNames != undefined) {
+    console.log(cities[city].oldNames.oldName2);
+}
+
+console.log('with optional chaining');
+console.log(cities[city].oldNames?.oldName2);
