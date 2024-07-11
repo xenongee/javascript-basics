@@ -21,7 +21,6 @@ a(1,1);
 /*
     Пример scope chain
     Example of scope chain
-*/
 
 'use strict'
 
@@ -53,3 +52,32 @@ function addRole(user, role) {
 
 console.log(addRole(user, 'admin'));
 console.log(addRole(user, 'redactor'));
+*/
+
+/*
+    Поднятие 
+    Hoisting
+*/
+
+addUser(); // 'User added'
+// console.log(a); // Cannot access before initialization
+console.log(b); // undefined
+let a = 3; // also const
+var b = 2;
+
+function addUser() {
+	console.log('User added');
+}
+
+// arr1(); // Cannot access before initialization
+const arr1 = () => {
+    console.log('arr1');
+}
+
+// arr2(); // err, no function, because var is undefined
+var arr2 = () => {
+    console.log('arr2');
+}
+
+addUser(); // 'User added'
+
