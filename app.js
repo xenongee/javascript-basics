@@ -57,7 +57,7 @@ const user = {
 // }
 
 console.log(user.getFullNameNew());
-*/  
+*/
 
 /*
     Упражнение - кошелек
@@ -210,7 +210,6 @@ console.log(vyatka);
 
 /*
     Optional chaining
-*/
 
 let cities = {
     kirov: {
@@ -244,3 +243,65 @@ if(cities[city] != undefined && cities[city].oldNames != undefined) {
 
 console.log('with optional chaining');
 console.log(cities[city].oldNames?.oldName2);
+*/
+
+/*
+    Упражнение - склад
+    Exercise - warehouse
+
+    Сделать объект склад с методами добавления на склад, поиска по складу товара и расчет веса
+    Do object warehouse with methods adding to warehouse, searching goods in warehouse and calculating weight
+*/
+
+const warehouse = {
+    goods: [],
+    
+    findGoodById: function (id) {
+        return this.goods.find(good => good.id == id)
+    },
+    addGood: function (good) {
+        if (good.id == undefined || good.id == null || this.findGoodById(good.id)) {
+            console.log(`Такой товар с id ${good.id} уже есть в складе`);
+            return;
+        }
+        this.goods.push(good);
+    },
+    getWeightKg: function (id) {
+        if (this.findGoodById(id).weight?.kg === undefined) {
+            return `Товар с id ${id} не имеет веса в килограммах`;
+        }
+        return this.findGoodById(id).weight?.kg;
+    },
+};
+
+/* Товары */
+const car = {
+    id: 1,
+    weight: {
+        kg: 1000
+    },
+    brand: 'Ford'
+}
+
+const chair = {
+    id: 2,
+    weight: {
+        kg: 2
+    }
+}
+
+const paper = {
+    id: 3,
+    color: 'red'
+}
+
+
+warehouse.addGood(car);
+warehouse.addGood(chair);
+warehouse.addGood(chair); // Такой товар уже есть в складе
+warehouse.addGood(paper);
+console.log(warehouse.goods); // [{…}, {…}, {…}]
+console.log(warehouse.findGoodById(1)); // {id: 1, weight: {…}, brand: 'Ford'}
+console.log(warehouse.getWeightKg(1)); // 1000
+console.log(warehouse.getWeightKg(3)); // 'Товар с id 3 не имеет веса в килограммах'
+
