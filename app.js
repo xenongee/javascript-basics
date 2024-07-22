@@ -93,7 +93,6 @@ console.log(automobile);
 
 /*
     Exercise - managing this
-*/
 
 const user = {
     login: 'example@mail.com',
@@ -110,3 +109,19 @@ const resetPwd = removePassword.bind(user, true);
 resetPwd();
 // removePassword.bind(user, true)();
 console.log(user);
+*/
+
+/*
+    IIFE (Immediately Invoked Function Expression)
+    Самовызывающаяся функция
+*/
+
+function init() {
+    console.log('init');
+}
+
+init();
+
+(function () {
+    console.log('init IIFE');
+})();
