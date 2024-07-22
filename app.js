@@ -65,7 +65,6 @@ addDamageFunc.apply(toyota, ['suspension', 2]);
 
 /*
     Bind
-*/
 
 const automobile = {
     brand: 'Ford',
@@ -90,3 +89,24 @@ addDamageFord('bumper', 4);
 const addDamageFord_Roof = carManipulation.addDamage.bind(automobile, 'roof');
 addDamageFord_Roof(9);
 console.log(automobile);
+*/
+
+/*
+    Exercise - managing this
+*/
+
+const user = {
+    login: 'example@mail.com',
+    password: '12345'
+};
+
+function removePassword(reset) {
+    if (reset) {
+        this.password = undefined;
+    }
+}
+
+const resetPwd = removePassword.bind(user, true);
+resetPwd();
+// removePassword.bind(user, true)();
+console.log(user);
