@@ -84,7 +84,6 @@ addUser(); // 'User added'
 /*
     Ключевое слово this
     Keyword this
-*/
 
 'use strict';
 
@@ -123,3 +122,47 @@ user2.sayHi(); // hi Bob {name: 'Bob', sayHi: ƒ}
 
 const sayHello = user2.sayHi;
 sayHello(); // error
+*/
+
+/*
+    Context in methods
+*/
+
+'use strict';
+
+const user = {
+    firstname: 'Denis',
+    lastname: 'Morozov',
+    age: 25,
+    getUserInfo: function() {
+        console.log(this);
+        console.log(this.firstname, this.lastname, this.age);
+
+        function canDrink() {
+            if (this.age >= 18) {
+                console.log('yes');
+            } else {
+                console.log('no');
+            }
+        }
+
+        // canDrink(); //error
+
+        const canDrink2 = () => {
+            if (this.age >= 18) {
+                console.log('yes');
+            } else {
+                console.log('no');
+            }
+        }
+
+        canDrink2(); // yes
+    },
+    getUserInfo2: () => {   
+        console.log(this);
+        console.log(this.firstname, this.lastname, this.age);
+    }
+}
+
+user.getUserInfo(); // Denis Morozov 25
+user.getUserInfo2(); // undefined undefined undefined
