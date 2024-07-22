@@ -126,7 +126,6 @@ sayHello(); // error
 
 /*
     Context in methods
-*/
 
 'use strict';
 
@@ -166,3 +165,31 @@ const user = {
 
 user.getUserInfo(); // Denis Morozov 25
 user.getUserInfo2(); // undefined undefined undefined
+*/
+
+/*
+    Arguments
+*/
+
+'use strict';
+
+function sum(a, b) {
+    console.log(arguments);
+    console.log(arguments.length);
+    console.log(arguments[0]);
+    console.log(arguments[1]);
+    return a + b;
+}
+
+console.log(sum(1, 2));
+
+
+const sum2 = (a, b) => {
+    console.log(arguments);
+    console.log(arguments.length);
+    console.log(arguments[0]);
+    console.log(arguments[1]);
+    return a + b;
+}
+
+console.log(sum2(1, 2)); // error: arguments is not defined
