@@ -57,7 +57,6 @@ console.log(addRole(user, 'redactor'));
 /*
     Поднятие 
     Hoisting
-*/
 
 addUser(); // 'User added'
 // console.log(a); // Cannot access before initialization
@@ -80,4 +79,47 @@ var arr2 = () => {
 }
 
 addUser(); // 'User added'
+*/
 
+/*
+    Ключевое слово this
+    Keyword this
+*/
+
+'use strict';
+
+console.log(this); // window
+console.log(window); // window
+
+function addNum(a, b) {
+    console.log(this);
+    return a + b;
+}
+
+addNum(1, 2); // undefined
+
+const addNumNew = (a, b) => {
+    console.log(this);
+    return a + b;
+}
+
+addNumNew(1, 2); // window
+
+const user = {
+    username: 'John',
+    sayHi() {
+        console.log('hi', this.username, this);
+    }
+}
+
+user.sayHi(); // hi John {name: 'John', sayHi: ƒ}
+
+const user2 = {
+    username: 'Bob'
+}
+
+user2.sayHi = user.sayHi;
+user2.sayHi(); // hi Bob {name: 'Bob', sayHi: ƒ}
+
+const sayHello = user2.sayHi;
+sayHello(); // error
