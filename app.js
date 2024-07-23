@@ -129,7 +129,6 @@ init();
 /*
     Closures
     Замыкания
-*/
 
 function changeBalance() {
     let balance = 0;
@@ -151,4 +150,49 @@ const addBalance2 = changeBalance();
 addBalance2(100);
 
 console.dir(addBalance2);
+*/
 
+/*
+    Exercise - working with closures
+    Упражнение - работа с замыканиями
+
+
+    Make a user function that takes 'userInfo' as a basis and creates a new object with which you can work as a shortcut
+    // user1().increase(100);
+    
+    Сделать функцию пользователя которая берет за основу 'userInfo' и за счет замыкания создает новый объект, с которым можно работать как
+    // user1().increase(100);
+
+*/
+
+`use strict`
+
+const userInfo = { 
+    balance: 0, 
+    operations: 0, 
+    increase(sum) { 
+      this.balance += sum; 
+      this.operations++;
+    }, 
+};
+
+function someUser () {
+    const userObj = Object.create(userInfo);
+    return function() {
+        return userObj;
+    }
+}
+
+const user1 = someUser();
+user1().increase(100);
+user1().increase(-55);
+
+console.log(user1());
+
+const user2 = someUser();
+user2().increase(500);
+user2().increase(-256);
+
+console.log(user2());
+
+console.log(userInfo);
