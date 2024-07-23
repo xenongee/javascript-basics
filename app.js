@@ -11,14 +11,8 @@ panel.value = 'Hello everyone!';
 */
 
 /*
-    Click handling
+    Keyboard and Click handling
 */
-
-`use strict`;
-
-document.querySelector('.button').addEventListener('click', function () {
-    changePanel();
-})
 
 function changePanel() {
     const input = document.querySelector('.input');
@@ -31,4 +25,13 @@ function changePanel() {
     input.value = '';
 }
 
+document.querySelector('.button').addEventListener('click', function () {
+    changePanel();
+})
 
+document.querySelector('.input').addEventListener('keydown', function (event) {
+    console.log(event);
+    if (event.key === 'Enter') {
+        changePanel();
+    }
+});
