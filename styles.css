@@ -1,5 +1,5 @@
 @media (prefers-color-scheme: dark) {
-    * {
+    html {
         background-color: black;
         color: white;
     }
@@ -25,6 +25,15 @@ body {
 	border-radius: 10px;
 	padding: 40px;
 	margin-bottom: 20px;
+}
+
+.notify {
+    margin-top: 1rem;
+    display: none;
+}
+
+.notify-active {
+    display: block;
 }
 
 .button {
