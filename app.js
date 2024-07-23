@@ -52,4 +52,13 @@ function notify(status) {
     }
 }
 
-notify(false);
+/*
+    Attribute setting
+*/
+
+function notifyAttributes() {
+    console.log(document.querySelector('.notify').getAttribute('class'));
+    document.querySelector('.notify').setAttribute('data-notify', 'Hello World!');
+}
+
+notifyAttributes();
