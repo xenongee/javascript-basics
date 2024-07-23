@@ -114,7 +114,6 @@ console.log(user);
 /*
     IIFE (Immediately Invoked Function Expression)
     Самовызывающаяся функция
-*/
 
 function init() {
     console.log('init');
@@ -125,3 +124,31 @@ init();
 (function () {
     console.log('init IIFE');
 })();
+*/
+
+/*
+    Closures
+    Замыкания
+*/
+
+function changeBalance() {
+    let balance = 0;
+    return function(amount) {
+        balance += amount;
+        console.log(`Balance: ${balance}`);
+    }
+}
+
+const addBalance = changeBalance();
+
+addBalance(100);
+addBalance(-50);
+addBalance(200);
+
+console.dir(addBalance);
+
+const addBalance2 = changeBalance();
+addBalance2(100);
+
+console.dir(addBalance2);
+
