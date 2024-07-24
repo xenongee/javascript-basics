@@ -62,3 +62,19 @@ function notifyAttributes() {
 }
 
 notifyAttributes();
+
+/*
+    Add HTML on the fly
+*/
+
+const doc = document;
+const someText = 'Click Me!';
+const someClass = 'btn btn-success';
+const wrapper = doc.querySelector('.test');
+const newBtn = doc.createElement('div');
+
+newBtn.setAttribute('someAttr', 'wrapper-btn');
+newBtn.classList.add('it-is-wrapper');
+newBtn.innerHTML = `<button class="${someClass}">${someText}</button>`;
+
+wrapper.appendChild(newBtn);
