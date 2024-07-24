@@ -84,19 +84,37 @@ function bimbom() {
 /*
     Local Storage
 */
+function bimbim() {
+    localStorage.setItem('iamkey', 'i am value');
+    localStorage.setItem('iamkey', 'i am value!');
+    localStorage.setItem('binary', '01010011');
+    localStorage.setItem('token', 'e53Pvd27owE320001pqXGEE23');
 
-localStorage.setItem('iamkey', 'i am value');
-localStorage.setItem('iamkey', 'i am value!');
-localStorage.setItem('binary', '01010011');
-localStorage.setItem('token', 'e53Pvd27owE320001pqXGEE23');
+    console.log(localStorage.getItem('iamkey'));
+    console.log(localStorage.getItem('binary'));
+    localStorage.removeItem('binary');
+    console.log(localStorage.getItem('binary'));
+    console.log(localStorage.getItem('token'));
 
-console.log(localStorage.getItem('iamkey'));
-console.log(localStorage.getItem('binary'));
-localStorage.removeItem('binary');
-console.log(localStorage.getItem('binary'));
-console.log(localStorage.getItem('token'));
+    const token = localStorage.getItem('token');
+    console.log(typeof (token));
 
-const token = localStorage.getItem('token');
-console.log(typeof(token));
+    localStorage.clear();
+}
+/*
+    JSON
+*/
 
-localStorage.clear();
+// { 
+//     "key": "value", 
+//     "num": 0, 
+//     "bool": true, 
+//     "array": ["hello", "world"], 
+//     "object": { 
+//         "key": "value" 
+//     } 
+// }
+const someJson = JSON.parse('{"key": "value", "num": 0, "bool": true, "array": ["hello", "world"], "object": {"key": "value" }}');
+console.log(someJson);
+const stringJson = JSON.stringify(someJson);
+console.log(stringJson);
