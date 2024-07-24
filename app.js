@@ -22,6 +22,7 @@ function changePanel() {
 
     // console.log(input.value);
     panel.innerHTML = input.value;
+    jsonify(input.value);
     input.value = '';
     notify(true);
 }
@@ -31,7 +32,7 @@ document.querySelector('.button').addEventListener('click', function () {
 })
 
 document.querySelector('.input').addEventListener('keydown', function (event) {
-    console.log(event);
+    // console.log(event);
     if (event.key === 'Enter') {
         changePanel();
     }
@@ -114,7 +115,24 @@ function bimbim() {
 //         "key": "value" 
 //     } 
 // }
-const someJson = JSON.parse('{"key": "value", "num": 0, "bool": true, "array": ["hello", "world"], "object": {"key": "value" }}');
-console.log(someJson);
-const stringJson = JSON.stringify(someJson);
-console.log(stringJson);
+function bombom() {
+    const someJson = JSON.parse('{"key": "value", "num": 0, "bool": true, "array": ["hello", "world"], "object": {"key": "value" }}');
+    console.log(someJson);
+    const stringJson = JSON.stringify(someJson);
+    console.log(stringJson);
+}
+
+/*
+    Exercise - saving JSON
+*/
+
+function jsonify(value) {
+    const unixKey = Date.now();
+    value = JSON.stringify({"value": value});
+    localStorage.setItem(unixKey, value); // if value is object -> [object Object] 
+
+    console.log(JSON.parse(localStorage.getItem(unixKey)));
+
+    const localStorage2JSON = JSON.parse(JSON.stringify(localStorage));
+    console.log(localStorage2JSON);
+}
