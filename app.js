@@ -67,14 +67,36 @@ notifyAttributes();
     Add HTML on the fly
 */
 
-const doc = document;
-const someText = 'Click Me!';
-const someClass = 'btn btn-success';
-const wrapper = doc.querySelector('.test');
-const newBtn = doc.createElement('div');
+function bimbom() {
+    const doc = document;
+    const someText = 'Click Me!';
+    const someClass = 'btn btn-success';
+    const wrapper = doc.querySelector('.test');
+    const newBtn = doc.createElement('div');
 
-newBtn.setAttribute('someAttr', 'wrapper-btn');
-newBtn.classList.add('it-is-wrapper');
-newBtn.innerHTML = `<button class="${someClass}">${someText}</button>`;
+    newBtn.setAttribute('someAttr', 'wrapper-btn');
+    newBtn.classList.add('it-is-wrapper');
+    newBtn.innerHTML = `<button class="${someClass}">${someText}</button>`;
 
-wrapper.appendChild(newBtn);
+    wrapper.appendChild(newBtn);
+}
+
+/*
+    Local Storage
+*/
+
+localStorage.setItem('iamkey', 'i am value');
+localStorage.setItem('iamkey', 'i am value!');
+localStorage.setItem('binary', '01010011');
+localStorage.setItem('token', 'e53Pvd27owE320001pqXGEE23');
+
+console.log(localStorage.getItem('iamkey'));
+console.log(localStorage.getItem('binary'));
+localStorage.removeItem('binary');
+console.log(localStorage.getItem('binary'));
+console.log(localStorage.getItem('token'));
+
+const token = localStorage.getItem('token');
+console.log(typeof(token));
+
+localStorage.clear();
