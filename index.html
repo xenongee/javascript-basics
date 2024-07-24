@@ -1,21 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HtmlDocument</title>
-        <link rel="stylesheet" href="/styles.css" />
-    </head>
-    <body>
-        <img src="./logo.svg" alt="" />
-        <div class="panel">I love this!</div>
-        <input class="input" />
-        <button class="button">Change</button>
-        <div class="notify">Changed!</div>
-        
-        <div class="test">
-            <!-- hello -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+    <div class="app">
+        <div class="sidepanel">
+            <header>
+                <img src="assets/logo.svg" alt="Habbit Logo">
+                <br>
+                <strong>
+                    Habbit
+                    <br>
+                    Tracker
+                </strong>
+            </header>
+            <main>
+                &lt;No habits&gt;
+            </main>
+            <footer>
+                <button onclick="addHabbit()">
+                    Add a habit
+                </button>
+            </footer>
         </div>
-        <script src="./app.js"></script>
-    </body>
+        <div class="mainpanel">
+            <header>
+                <div class="habbitName">
+                    <strong>&lt;Select a habit&gt;</strong>
+                </div>
+                <div class="habbitProgress">
+                    <span>Progress: </span>
+                    <progress></progress>
+                </div>
+            </header>
+            <main>
+                <ul>
+                    <li><strong>&lt;No tasks&gt;</strong></li>
+                    <li><strong>Day 1</strong><br><i>Comment</i></li>
+                    <li><strong>Day 2</strong><br><i>Comment</i></li>
+                    <li><strong>Day 3</strong><br><i>Comment</i></li>
+                </ul>
+                <br>
+                <form>
+                    <label for="task">
+                        <strong>Day {number}:</strong>
+                    </label>
+                    <input type="text" id="task">
+                    <button onclick="addTask()">
+                        Add a task
+                    </button>
+                </form>
+            </main>
+
+        </div>
+        <div class="modal hidden-">
+            <div class="modal-content">
+                <header>
+                    <strong>Add a habit</strong>
+                    <button onclick="closeModal()">
+                        X
+                    </button>
+                </header>
+                <br>
+                <main>
+                    <form>
+                        <span>Select icon:</span>
+                        <div>
+                            <input type="radio" id="habbitIcon1">
+                            <label for="habbitIcon1">🏆</label>
+                            <br>
+                            <input type="radio" id="habbitIcon2">
+                            <label for="habbitIcon1">🥗</label>
+                            <br>
+                            <input type="radio" id="habbitIcon3">
+                            <label for="habbitIcon1">📚</label>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="habbitName">Name of habit:</label>
+                            <br>
+                            <input type="text" id="habbitName">
+                            <button onclick="addHabbit()">
+                                Add
+                            </button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="assets/app.js"></script>
+</body>
 </html>
