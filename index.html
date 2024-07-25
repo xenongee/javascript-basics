@@ -23,7 +23,11 @@
             <main>
                 <fieldset>
                     <legend>Habbits</legend>
-                    &lt;No habits&gt;
+                    <nav class="habbitsMenu">
+                        <!-- <span class="active1" habbit-menu-id="1">🏆 <a href="#">Sport</a></span> -->
+                        <!-- <span class habbit-menu-id="2">🥗 <a href="#">Health</a></span> -->
+                        <!-- <span habbit-menu-id="3">📚 <a href="#">Edu</a></span> -->
+                    </nav>
                 </fieldset>
             </main>
             <footer>
@@ -33,7 +37,7 @@
             </footer>
         </div>
         <div class="mainpanel">
-            <header class="hidden">
+            <header class="hidden1">
                 <div class="habbitName">
                     <strong>&lt;Select a habit&gt;</strong>
                 </div>
@@ -42,26 +46,25 @@
                     <progress></progress>
                 </div>
             </header>
-            <main class="hidden">
-                <ul class="taskList">
-                    <li><strong>&lt;No tasks&gt;</strong></li>
+            <main class="hidden1">
+                <ul class="commentList">
                     <li>
                         <strong>Day 1</strong>
-                        <div class="task">
+                        <div class="comment">
                             <i>Comment</i>
                             <button>Remove</button>
                         </div>
                     </li>
                     <li>
                         <strong>Day 2</strong>
-                        <div class="task">
+                        <div class="comment">
                             <i>Comment</i>
                             <button>Remove</button>
                         </div>
                     </li>
                     <li>
                         <strong>Day 3</strong>
-                        <div class="task">
+                        <div class="comment">
                             <i>Comment</i>
                             <button>Remove</button>
                         </div>
@@ -69,15 +72,13 @@
                 </ul>
                 <br>
                 <form>
-                    <label for="task">
-                        <ul>
-                            <li><strong>Day {number}:</strong></li>
-                        </ul>
+                    <label for="comment">
+                        <ul><li><strong class="commentCurrentDay">Day {number}:</strong></li></ul>
                     </label>
                     <div>
-                        <input type="text" id="task">
-                        <button onclick="addTask()">
-                            Task Completed!
+                        <input type="text" id="comment">
+                        <button onclick="addComment()">
+                            Completed!
                         </button>
                     </div>
                 </form>
