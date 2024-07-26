@@ -12,21 +12,21 @@
     <div class="app">
         <div class="sidePanel">
             <header>
-                <img src="assets/logo.svg" alt="Habbit Logo">
+                <img src="assets/logo.svg" alt="habit Logo">
                 <br>
                 <strong>
-                    Habbit
+                    habit
                     <br>
                     Tracker
                 </strong>
             </header>
             <main>
                 <fieldset>
-                    <legend>Habbits</legend>
-                    <nav class="habbitsMenu">
-                        <!-- <span class="active1" habbit-menu-id="1">🏆 <a href="#">Sport</a></span> -->
-                        <!-- <span class habbit-menu-id="2">🥗 <a href="#">Health</a></span> -->
-                        <!-- <span habbit-menu-id="3">📚 <a href="#">Edu</a></span> -->
+                    <legend>habits</legend>
+                    <nav class="habitsMenu">
+                        <!-- <span class="active1" habit-menu-id="1">🏆 <a href="#">Sport</a></span> -->
+                        <!-- <span class habit-menu-id="2">🥗 <a href="#">Health</a></span> -->
+                        <!-- <span habit-menu-id="3">📚 <a href="#">Edu</a></span> -->
                     </nav>
                 </fieldset>
             </main>
@@ -34,14 +34,15 @@
                 <button onclick="toggleModal()">
                     Add a habit
                 </button>
+                <small>pet-project by xenongee, 2024</small>
             </footer>
         </div>
         <div class="mainPanel">
             <header>
-                <div class="habbitName">
+                <div class="habitName">
                     <strong>&lt;Select a habit&gt;</strong>
                 </div>
-                <div class="habbitProgress">
+                <div class="habitProgress">
                     <span>Progress: </span>
                     <progress></progress>
                 </div>
@@ -50,13 +51,13 @@
                 <ul class="daysList">
 
                 </ul>
-                <form>
+                <form onsubmit="addDay(event)">
                     <label for="newDay">
                         <ul><li><strong class="currentDay">Day {number}:</strong></li></ul>
                     </label>
                     <div>
-                        <input type="text" id="newDay">
-                        <button onclick="addComment()">
+                        <input class="" type="text" name="comment" placeholder="Comment...">
+                        <button type="submit">
                             Completed!
                         </button>
                     </div>
@@ -73,24 +74,24 @@
                 </header>
                 <br>
                 <main>
-                    <form>
+                    <form onsubmit="addhabit(event)">
                         <span>Select icon:</span>
                         <div>
-                            <input type="radio" id="habbitIcon1" name="habbitIcon">
-                            <label for="habbitIcon1">🏆</label>
+                            <input type="radio" id="habitIcon1" name="habitIcon">
+                            <label for="habitIcon1">🏆</label>
                             <br>
-                            <input type="radio" id="habbitIcon2" name="habbitIcon">
-                            <label for="habbitIcon2">🥗</label>
+                            <input type="radio" id="habitIcon2" name="habitIcon">
+                            <label for="habitIcon2">🥗</label>
                             <br>
-                            <input type="radio" id="habbitIcon3" name="habbitIcon">
-                            <label for="habbitIcon3">📚</label>
+                            <input type="radio" id="habitIcon3" name="habitIcon">
+                            <label for="habitIcon3">📚</label>
                         </div>
                         <br>
                         <div>
-                            <label for="habbitName">Name of habit:</label>
+                            <label for="habitName">Name of habit:</label>
                             <br>
-                            <input type="text" id="habbitName">
-                            <button onclick="addHabbit()">
+                            <input type="text" id="habitName">
+                            <button type="submit">
                                 Add
                             </button>
                         </div>

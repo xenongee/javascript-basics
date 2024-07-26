@@ -8,14 +8,17 @@
 }
 
 /* styles */
+input {
+	border: inset;
+}
+
+input[type="radio"] {
+	transform: scale(1.25);
+}
 
 button {
 	border: outset;
 	background-color: gainsboro;
-}
-
-input {
-	border: inset;
 }
 
 button:hover {
@@ -46,11 +49,20 @@ ul {
 fieldset {
 	padding-inline: 1rem;
 	padding-block: 0.5rem;
-	margin: 0.5rem;
 }
 
 span, fieldset {
 	display: block;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+small {
+	font-size: 0.75rem;
+	color: dimgray;
 }
 
 .hidden {
@@ -75,7 +87,7 @@ span, fieldset {
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	width: 30%;
+	min-width: 30%;
 	background-color: gainsboro;
 	border-style: outset;
 }
@@ -83,10 +95,21 @@ span, fieldset {
 .sidePanel > header,
 .sidePanel > main {
 	margin-bottom: 2rem;
+	width: 100%;
+}
+
+.sidePanel > header img {
+	max-height: 256px;
+	max-width: 256px;
 }
 
 .sidePanel > main * {
 	text-align: start;
+}
+
+.sidePanel > main fieldset {
+	max-height: 45vh;
+	overflow: auto;
 }
 
 .sidePanel > main a {
@@ -100,6 +123,13 @@ span, fieldset {
 	cursor: pointer;
 }
 
+.sidePanel > footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
 .mainPanel {
 	background-color: teal;
 	width: 100%;
@@ -111,7 +141,7 @@ span, fieldset {
 	background-color: gainsboro;
 	border-style: outset;
 	margin-block: 1rem;
-	padding: 1rem 1rem;
+	padding: 1rem;
 }
 
 .mainPanel > header {
@@ -119,7 +149,7 @@ span, fieldset {
 }
 
 .mainPanel > header,
-.habbitProgress {
+.habitProgress {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -167,6 +197,10 @@ span, fieldset {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+input.error {
+	outline: dotted 1px red;
 }
 
 @media (max-width: 425px) {
