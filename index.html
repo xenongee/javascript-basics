@@ -10,7 +10,7 @@
 
 <body>
     <div class="app">
-        <div class="sidepanel">
+        <div class="sidePanel">
             <header>
                 <img src="assets/logo.svg" alt="Habbit Logo">
                 <br>
@@ -36,8 +36,8 @@
                 </button>
             </footer>
         </div>
-        <div class="mainpanel">
-            <header class="hidden1">
+        <div class="mainPanel">
+            <header>
                 <div class="habbitName">
                     <strong>&lt;Select a habit&gt;</strong>
                 </div>
@@ -46,37 +46,16 @@
                     <progress></progress>
                 </div>
             </header>
-            <main class="hidden1">
-                <ul class="commentList">
-                    <li>
-                        <strong>Day 1</strong>
-                        <div class="comment">
-                            <i>Comment</i>
-                            <button>Remove</button>
-                        </div>
-                    </li>
-                    <li>
-                        <strong>Day 2</strong>
-                        <div class="comment">
-                            <i>Comment</i>
-                            <button>Remove</button>
-                        </div>
-                    </li>
-                    <li>
-                        <strong>Day 3</strong>
-                        <div class="comment">
-                            <i>Comment</i>
-                            <button>Remove</button>
-                        </div>
-                    </li>
+            <main class="hidden">
+                <ul class="daysList">
+
                 </ul>
-                <br>
                 <form>
-                    <label for="comment">
-                        <ul><li><strong class="commentCurrentDay">Day {number}:</strong></li></ul>
+                    <label for="newDay">
+                        <ul><li><strong class="currentDay">Day {number}:</strong></li></ul>
                     </label>
                     <div>
-                        <input type="text" id="comment">
+                        <input type="text" id="newDay">
                         <button onclick="addComment()">
                             Completed!
                         </button>
@@ -85,7 +64,7 @@
             </main>
         </div>
         <div class="modal hidden">
-            <div class="modal-content">
+            <div class="modalContent">
                 <header>
                     <strong>Add a habit</strong>
                     <button onclick="toggleModal()">
