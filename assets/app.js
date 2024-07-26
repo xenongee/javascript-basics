@@ -42,7 +42,7 @@ const templates = {
     },
     habitDay: function (dayCount, comment) {
         const elem = document.createElement('li');
-        elem.innerHTML = `<strong>Day ${dayCount}</strong><div class="comment"><i>${comment}</i><button onclick="removeComment()">Remove</button></div>`
+        elem.innerHTML = `<strong>Day ${dayCount}</strong><div class="comment"><i>${comment}</i><button onclick="removeDay(${dayCount - 1})">Remove</button></div>`
         return elem;
     }
 
@@ -94,6 +94,21 @@ function addDay(event) {
     })
     console.log(habitsData);
     form['comment'].value = '';
+    renderPage(globalActiveHabit);
+    saveData();
+}
+
+function removeDay(day) {
+    habitsData = habitsData.map(habit => {
+        if (habit.id === globalActiveHabit) {
+            habit.days.splice(day, 1);
+            return {
+                ...habit,
+                days: habit.days
+            };
+        }
+        return habit;
+    });
     renderPage(globalActiveHabit);
     saveData();
 }
