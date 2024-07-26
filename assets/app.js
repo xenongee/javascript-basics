@@ -9,19 +9,42 @@ const page = {
     mainPanel: {
         header: document.querySelector('.habbitName'),
         progress: document.querySelector('.habbitProgress'),
-        taskList: document.querySelector('.commentList'),
-        currentDay: document.querySelector('.commentCurrentDay'),
+        progressValue: document.querySelector('.habbitProgress progress'),
+        main: document.querySelector('.mainPanel main'),
+        daysList: document.querySelector('.daysList'),
+        currentDay: document.querySelector('.currentDay'),
     },
     modal: document.querySelector('.modal'),
 };
 
 const templates = {
-    menuElement: function(id, icon, name) {
+    menuElement: function (id, icon, name) {
         const elem = document.createElement('span');
         elem.setAttribute('habbit-menu-id', id);
         elem.innerHTML = `${icon} <a>${name}</a>`;
         return elem;
+    },
+    habbitHeader: function (name) {
+        const elem = document.createElement('strong');
+        elem.innerHTML = name;
+        return elem;
+    },
+    habbitProgress: function (value, max) {
+        const parent = document.createElement('div');
+        const spanElem = document.createElement('span')
+        const progressElem = document.createElement('progress')
+        spanElem.innerHTML = `Progress: ${(value / max) * 100}%`;
+        progressElem.setAttribute('max', max);
+        progressElem.setAttribute('value', value);
+        parent.append(spanElem, progressElem);
+        return parent.children;
+    },
+    habbitDay: function (dayCount, comment) {
+        const elem = document.createElement('li');
+        elem.innerHTML = `<strong>Day ${dayCount}</strong><div class="comment"><i>${comment}</i><button onclick="removeComment()">Remove</button></div>`
+        return elem;
     }
+
 }
 
 const habbitIcons = {
@@ -55,25 +78,28 @@ function toggleModal() {
     page.modal.classList.toggle('hidden');
 }
 
-function renderSidePanel(activeId) {
-    const activeElem = habbitsData.find(habbitElem => habbitElem.id === activeId) ?? 0;
-
-    for(const habbit of habbitsData) {
-        // console.log('elem:', index, habbit);
+function renderSidePanel(currentHabbit) {
+    for (const habbit of habbitsData) {
         // exists elem
         const existsElem = page.sidePanel.menu.querySelector(`[habbit-menu-id="${habbit.id}"]`);
-        // create elem
-        if (!existsElem)  {
+
+        // if not exist - create elem
+        if (!existsElem) {
             const newElement = templates.menuElement(habbit.id, habbitIcons[habbit.icon], habbit.name);
             newElement.addEventListener('click', () => renderPage(habbit.id));
-            if (habbit.id === activeElem.id) {
+
+            if (habbit.id === currentHabbit.id) {
                 newElement.classList.add('active');
             }
+
             page.sidePanel.menu.appendChild(newElement);
+
+            // go to next elem
             continue;
         }
-        // active-class
-        if (habbit.id === activeElem.id) {
+
+        // if exist - toggle 'active' class
+        if (habbit.id === currentHabbit.id) {
             existsElem.classList.add('active');
         } else {
             existsElem.classList.remove('active');
@@ -81,14 +107,37 @@ function renderSidePanel(activeId) {
     }
 }
 
-function renderMainPanel(activeId) {
+function renderMainPanel(currentHabbit) {
+    if (!currentHabbit) {
+        return;
+    }
 
+    const progressMax = currentHabbit.target;
+    const progressValue = currentHabbit.days.length > progressMax ? progressMax : currentHabbit.days.length;
+
+    // header of habbit and its progress
+    page.mainPanel.header.replaceChildren(templates.habbitHeader(currentHabbit.name));
+    page.mainPanel.progress.replaceChildren(...templates.habbitProgress(progressValue, progressMax));
+
+    // main of habbit with days of tasks completed
+    page.mainPanel.daysList.innerHTML = '';
+    for (const index in currentHabbit.days) {
+        page.mainPanel.daysList.appendChild(templates.habbitDay(Number(index) + 1, currentHabbit.days[index].comment));
+    }
+
+    page.mainPanel.currentDay.innerHTML = `Day ${currentHabbit.days.length + 1}`;
+
+    // unhide main panel of habbit
+    if (page.mainPanel.main.classList.contains('hidden')) {
+        page.mainPanel.main.classList.remove('hidden');
+    }
 }
 
-function renderPage(activeId) {
-    console.log('activeId:', activeId);
-    renderSidePanel(activeId);
-    renderMainPanel(activeId)
+function renderPage(activeHabbitId) {
+    const activeHabbit = habbitsData.find(habbitElem => habbitElem.id === activeHabbitId) ?? 0;
+
+    renderSidePanel(activeHabbit);
+    renderMainPanel(activeHabbit)
 }
 
 
@@ -98,5 +147,5 @@ function renderPage(activeId) {
 
 (() => {
     loadData();
-    renderPage(0);
+    renderPage();
 })()
