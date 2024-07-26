@@ -64,7 +64,7 @@
                 </form>
             </main>
         </div>
-        <div class="modal hidden">
+        <div class="modal hidden1">
             <div class="modalContent">
                 <header>
                     <strong>Add a habit</strong>
@@ -90,7 +90,11 @@
                         <div>
                             <label for="habitName">Name of habit:</label>
                             <br>
-                            <input type="text" id="habitName">
+                            <input type="text" id="habitName" name="habitName">
+                            <br>
+                            <label for="habitDaysCount">Days to complete:</label>
+                            <br>
+                            <input type="number"  id="habitDaysCount" name="habitDaysCount">
                             <button type="submit">
                                 Add
                             </button>
