@@ -12,8 +12,12 @@ input {
 	border: inset;
 }
 
-input[type="radio"] {
-	transform: scale(1.25);
+input[type="radio"]+label {
+	border: 1px solid transparent;
+}
+
+input[type="radio"]+label:hover {
+	border: 1px dotted;	
 }
 
 button {
@@ -98,9 +102,17 @@ small {
 	width: 100%;
 }
 
+.sidePanel > header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .sidePanel > header img {
-	max-height: 256px;
-	max-width: 256px;
+	--size: 10;
+	max-height: calc(100vh / var(--size));
+	max-width: calc(100vw / var(--size));
+	object-fit: contain;
 }
 
 .sidePanel > main * {
@@ -199,17 +211,43 @@ small {
 	align-items: center;
 }
 
+.modalContent .icons {
+	display: grid;
+	grid-template-columns: 1fr 10fr;
+	gap: 0.15rem 0.25rem;
+}
+
 input.error {
 	outline: dotted 1px red;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 540px) {
 	* {
 		font-size: calc(100vw / 25);
 	}
 
-	.sidePanel > main > fieldset {
-		min-width: 100%;
+	.app {
+		flex-direction: column;
+	}
+	
+	.sidePanel {
+		width: 100%;
+	}
+
+	.sidePanel > header {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.sidePanel > header,
+	.sidePanel > main {
+		margin-bottom: 0.5rem;
+	}
+
+	.mainPanel {
+		height: 100%;
 	}
 }
 

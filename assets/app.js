@@ -1,4 +1,4 @@
-`use strict`;
+"use strict";
 
 const habitKey = 'HABIT_DATA';
 let habitsData = [];
@@ -15,43 +15,65 @@ const page = {
         daysList: document.querySelector('.daysList'),
         currentDay: document.querySelector('.currentDay'),
     },
-    modal: document.querySelector('.modal'),
+    modal: {
+        window: document.querySelector('.modal'),
+        icons: document.querySelector('.modal .modalContent .icons'),
+        habitName: document.querySelector('.modal .modalContent .habitName'),
+        habitDaysCount: document.querySelector('.modal .modalContent .habitDaysCount'),
+    },
 };
 
 const templates = {
-    menuElement: function (id, icon, name) {
+    menuElement: (id, icon, name) => {
         const elem = document.createElement('span');
         elem.setAttribute('habit-menu-id', id);
         elem.innerHTML = `${icon} <a>${name}</a>`;
         return elem;
     },
-    habitHeader: function (name) {
+    habitHeader: (name) => {
         const elem = document.createElement('strong');
         elem.innerHTML = name;
         return elem;
     },
-    habitProgress: function (value, max) {
+    habitProgress: (value, max) => {
         const parent = document.createElement('div');
-        const spanElem = document.createElement('span')
-        const progressElem = document.createElement('progress')
+        const spanElem = document.createElement('span');
+        const progressElem = document.createElement('progress');
         spanElem.innerHTML = `Progress: ${(value / max) * 100}%`;
         progressElem.setAttribute('max', max);
         progressElem.setAttribute('value', value);
         parent.append(spanElem, progressElem);
         return parent.children;
     },
-    habitDay: function (dayCount, comment) {
+    habitDay: (dayCount, comment) => {
         const elem = document.createElement('li');
         elem.innerHTML = `<strong>Day ${dayCount}</strong><div class="comment"><i>${comment}</i><button onclick="removeDay(${dayCount - 1})">Remove</button></div>`
         return elem;
+    },
+    modalIcons: (icons) => {
+        const parent = document.createElement('div');
+        for (const icon in icons) {
+            const inputElem = document.createElement('input');
+            const labelElem = document.createElement('label');
+            inputElem.setAttribute('type', 'radio');
+            inputElem.setAttribute('name', 'habitIcon');
+            inputElem.setAttribute('id', icon);
+            labelElem.setAttribute('for', icon);
+            labelElem.innerHTML = icons[icon];
+            parent.append(inputElem, labelElem);
+        }
+        return parent.children;
     }
-
 }
 
 const habitIcons = {
     sport: '🏆',
-    food: '🥗',
-    edu: '📚'
+    food: '🍕',
+    edu: '📚',
+    health: '💊',
+    programming: '💻',
+    bike: '🚴‍♀️',
+    music: '🎼',
 };
 
 
@@ -76,24 +98,24 @@ function addDay(event) {
     const data = new FormData(event.target);
     const comment = data.get('comment');
     if (!comment) {
-        form['comment'].classList.add('error');
+        form.comment.classList.add('error');
         return;
     }
-    if (form['comment'].classList.contains('error')) {
-        form['comment'].classList.remove('error');
+    if (form.comment.classList.contains('error')) {
+        form.comment.classList.remove('error');
     }
     console.log(habitsData);
     habitsData = habitsData.map(habbit => {
         if (habbit.id === globalActiveHabit) {
             return {
                 ...habbit,
-                days: habbit.days.concat([{comment}])
+                days: habbit.days.concat([{ comment }])
             }
         }
         return habbit;
     })
     console.log(habitsData);
-    form['comment'].value = '';
+    form.comment.value = '';
     renderPage(globalActiveHabit);
     saveData();
 }
@@ -123,7 +145,7 @@ function addhabit(event) {
 */
 
 function toggleModal() {
-    page.modal.classList.toggle('hidden');
+    page.modal.window.classList.toggle('hidden');
 }
 
 function renderSidePanel(currenthabit) {
@@ -199,4 +221,5 @@ function renderPage(activeHabitId) {
 (() => {
     loadData();
     renderPage(1);
+    page.modal.icons.replaceChildren(...templates.modalIcons(habitIcons));
 })()
