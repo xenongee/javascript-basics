@@ -33,7 +33,12 @@
                 <button onclick="toggleModal()">
                     Add a habit
                 </button>
-                <small>pet-project by xenongee, 2024</small>
+                <div>
+                    <small>All entered data is saved in your web browser using the Web Storage API (Local Storage).</small>
+                    <br>
+                    <br>
+                    <small>pet-project by xenongee, 2024</small>
+                </div>
             </footer>
         </div>
         <div class="mainPanel">
@@ -50,12 +55,12 @@
                 <ul class="daysList">
 
                 </ul>
-                <form onsubmit="addDay(event)">
-                    <label for="newDay">
+                <form onsubmit="addComment(event)">
+                    <label for="comment">
                         <ul><li><strong class="currentDay">Day {number}:</strong></li></ul>
                     </label>
                     <div>
-                        <input class="" type="text" name="comment" placeholder="Comment...">
+                        <input class="" type="text" id="comment" name="comment" placeholder="Comment...">
                         <button type="submit">
                             Completed!
                         </button>
@@ -63,7 +68,7 @@
                 </form>
             </main>
         </div>
-        <div class="modal hidden1">
+        <div class="modal hidden">
             <div class="modalContent">
                 <header>
                     <strong>Add a habit</strong>
@@ -73,7 +78,7 @@
                 </header>
                 <br>
                 <main>
-                    <form onsubmit="addhabit(event)">
+                    <form onsubmit="addHabit(event)">
                         <span>Select icon:</span>
                         <div class="icons">
                             <!-- <input type="radio" id="habitIcon1" name="habitIcon">
@@ -87,11 +92,11 @@
                         <div>
                             <label for="habitName">Name of habit:</label>
                             <br>
-                            <input type="text" id="habitName" name="habitName">
+                            <input class="habitName" type="text" id="habitName" name="habitName">
                             <br>
                             <label for="habitDaysCount">Days to complete:</label>
                             <br>
-                            <input type="number"  id="habitDaysCount" name="habitDaysCount">
+                            <input class="habitDaysCount" type="number"  id="habitDaysCount" name="habitDaysCount">
                             <button type="submit">
                                 Add
                             </button>

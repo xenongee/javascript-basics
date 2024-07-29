@@ -217,7 +217,7 @@ small {
 	gap: 0.15rem 0.25rem;
 }
 
-input.error {
+.error {
 	outline: dotted 1px red;
 }
 
