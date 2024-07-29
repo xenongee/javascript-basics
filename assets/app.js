@@ -317,10 +317,10 @@ function renderModalIcons() {
 }
 
 function renderPage(activeHabitId) {
-    const activeHabit = habitsData.find(habitElem => habitElem.id === activeHabitId) ?? 0;
+	const activeHabit = habitsData.find(habitElem => habitElem.id === activeHabitId) ?? 0;
 	globalActiveHabit = activeHabit.id;
 
-	// console.log(habitsData);
+	document.location.replace(`${document.location.pathname}#${activeHabitId}`);
 
 	renderSidePanel(activeHabit);
 	renderMainPanel(activeHabit);
@@ -333,5 +333,12 @@ function renderPage(activeHabitId) {
 (() => {
 	loadData();
 	renderModalIcons();
-	renderPage(0);
+	const hashId = Number(document.location.hash.replace('#', ''));
+	const url = habitsData.find(habit => habit.id === hashId);
+	console.log(url.id);
+	if (url) {
+		renderPage(url.id);
+	} else {
+		renderPage(0);
+	}
 })();
